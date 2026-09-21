@@ -46,16 +46,14 @@ The script depends on `scale_info.py`.
 
 ---
 
-## Requirements
+### Requirements
 
 - Python 3.8 or later
 - `scale_info.py` in the same directory
 
 No external packages are required.
 
----
-
-## Usage
+### Usage
 
 Run the script:
 
@@ -70,6 +68,8 @@ Input cantus firmus:
 ```
 
 Enter notes separated by spaces.
+
+---
 
 ## Configuration
 
@@ -89,8 +89,6 @@ Options:
 RELATIVE_HEIGHT = "above"
 RELATIVE_HEIGHT = "below"
 ```
-
----
 
 ### `KEY`
 
@@ -116,8 +114,6 @@ KEY = "D"
 
 If `KEY = "auto"`, the script attempts to infer the key from the input notes.
 
----
-
 ### `MODE`
 
 Sets the mode used for counterpoint generation.
@@ -136,8 +132,6 @@ MODE = "minor"
 
 If `MODE = "auto"`, the script attempts to infer whether the cantus firmus is major or minor.
 
----
-
 ### `DEFAULT_OCTAVE`
 
 Used when a note has no octave number.
@@ -145,8 +139,6 @@ Used when a note has no octave number.
 ```python
 DEFAULT_OCTAVE = 4
 ```
-
----
 
 ### `MAX_COUNTERPOINT_SPAN`
 
@@ -160,8 +152,6 @@ MAX_COUNTERPOINT_SPAN = 17
 
 The script tries to keep the counterpoint within this range, but may exceed it if necessary to find a valid solution.
 
----
-
 ### `ALLOW_MIDDLE_UNISON`
 
 Controls whether unisons are allowed in the middle of the phrase.
@@ -171,8 +161,6 @@ ALLOW_MIDDLE_UNISON = False
 ```
 
 Strict style usually avoids unisons except at the beginning or end.
-
----
 
 ### `PRINT_KEY_INFO`
 
@@ -218,8 +206,6 @@ Imperfect consonances are preferred:
 
 Unisons are generally only allowed at the beginning or end.
 
----
-
 ### 2. Beginning
 
 The generator prefers the first interval to be one of:
@@ -236,8 +222,6 @@ In semitones:
 
 The script first tries to enforce this rule. If no solution can be found, it may relax the requirement.
 
----
-
 ### 3. Ending
 
 The generator prefers the final interval to be one of:
@@ -252,8 +236,6 @@ In semitones:
 ```
 
 The script first tries to enforce this rule. If no solution can be found, it may relax the requirement.
-
----
 
 ### 4. Cadence preference
 
@@ -280,8 +262,6 @@ Minor third -> Unison or Octave
 
 This is implemented as a strong preference, not an absolute requirement, because arbitrary user-supplied cantus firmi may not always support the ideal cadence.
 
----
-
 ### 5. Melodic motion
 
 The generated counterpoint line prefers stepwise motion.
@@ -305,8 +285,6 @@ The generator avoids:
 
 Large leaps are discouraged, especially when repeated in the same direction.
 
----
-
 ### 6. Leap handling
 
 The script applies the following melodic leap rules:
@@ -315,8 +293,6 @@ The script applies the following melodic leap rules:
 - Consecutive large leaps in the same direction are forbidden.
 - After a large leap, motion in the opposite direction is strongly preferred.
 - Repeated leap motion in the same direction is penalized.
-
----
 
 ### 7. Parallel and hidden intervals
 
@@ -330,8 +306,6 @@ The generator avoids:
 
 Similar motion into a perfect interval is treated cautiously, especially if one voice leaps.
 
----
-
 ### 8. Voice crossing
 
 Voice crossing is forbidden.
@@ -339,8 +313,6 @@ Voice crossing is forbidden.
 If `RELATIVE_HEIGHT = "above"`, the counterpoint will not go below the cantus firmus.
 
 If `RELATIVE_HEIGHT = "below"`, the counterpoint will not go above the cantus firmus.
-
----
 
 ### 9. Range
 
@@ -355,8 +327,6 @@ MAX_COUNTERPOINT_SPAN = 17
 This is approximately an octave plus a fifth.
 
 If strict range constraints make the input impossible to set, the script may widen the allowed range.
-
----
 
 ## Key and Mode Inference
 
