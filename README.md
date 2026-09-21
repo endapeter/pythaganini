@@ -1,6 +1,12 @@
-# pythaganini
+<p align="center">
+  <img width="200" src="logo.png"> 
+</p>
 
-## First species
+<h1> <p align="center">
+      pythaganini
+</p> </h1>
+
+Currently, only the first species counterpoint function is implemented.
 
 `first_species.py` is a rule-based first species (1:1) counterpoint generator for a user-supplied cantus firmus.
 
